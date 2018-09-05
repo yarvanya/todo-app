@@ -2,8 +2,9 @@
   <header class="header">
     <h1>Todos:</h1>
     <mat-form-field>
-      <input class="new-todo" matInput placeholder="What needs to be done?" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
+      <input class="new-todo" matInput placeholder="What needs to be done?" [(ngModel)]="newTodo.title">
     </mat-form-field>
+    <button class="add-todos-button" mat-raised-button color="primary" (click)="addTodo()">Add</button>
     <div *ngIf="todos.length > 1">
       <h3>Search your todo</h3>
       <mat-form-field>

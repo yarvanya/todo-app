@@ -1,7 +1,38 @@
-<div class="page-content">
-  <form class="example-form">
+<div>
+  <header class="header">
+    <h1>Todos:</h1>
     <mat-form-field>
-      <input matInput placeholder="Favorite food" value="Sushi">
+      <input class="new-todo" matInput placeholder="What needs to be done?" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
     </mat-form-field>
-  </form>
+    <div *ngIf="todos.length > 1">
+      <h3>Search your todo</h3>
+      <input type="search" matInput placeholder="Do you want to find any todos?" [(ngModel)]="searchText">
+    </div>
+  </header>
+
+  <section class="todoapp">
+
+    <section class="main" *ngIf="todos.length > 0">
+      <mat-list role="list">
+        <mat-list-item *ngFor="let todo of todos | search : searchText" [class.completed]="todo.complete" role="listitem">
+          <div class="view">
+            <mat-checkbox
+              class="example-margin"
+              (change)="toggleTodoComplete(todo)"
+              [checked]="todo.complete">
+              <label>{{todo.title}}</label>
+            </mat-checkbox>
+            <button mat-button color="warn" (click)="removeTodo(todo)">Delete todo item</button>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </section>
+
+    <section class="todoapp">
+      <footer class="footer" *ngIf="todos.length > 0">
+        <span class="todo-count">Total: all: {{todos.length}}, completed: {{complete.length}}</span>
+      </footer>
+    </section>
+
+  </section>
 </div>

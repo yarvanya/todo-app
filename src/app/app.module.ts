@@ -1,16 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {AddTodoItemComponent} from './add-todo-item/add-todo-item.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddTodoItemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {}

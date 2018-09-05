@@ -6,7 +6,9 @@
     </mat-form-field>
     <div *ngIf="todos.length > 1">
       <h3>Search your todo</h3>
-      <input type="search" matInput placeholder="Do you want to find any todos?" [(ngModel)]="searchText">
+      <mat-form-field>
+        <input type="search" matInput placeholder="Do you want to find any todos?" [(ngModel)]="searchText">
+      </mat-form-field>
     </div>
   </header>
 
